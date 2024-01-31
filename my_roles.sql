@@ -1,6 +1,6 @@
 -- DROP ROLES
 DROP ROLE
-IF EXISTS 'read_only_classicmodels_db'@'&';
+IF EXISTS 'read_only_classicmodels_db'@'%';
 
 -- CHECK TO SEE GONE
 SELECT user, show_db_priv, account_locked
