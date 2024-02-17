@@ -22,10 +22,10 @@ TO 'rt_user'@'localhost';
 SELECT user, Show_db_priv, account_locked
 FROM mysql.user;
 
-SELECT 'Completed adding rt_user' AS 'INSTALLATION DONE'
+SELECT 'Completed adding rt_user' AS 'INSTALLATION DONE';
 
 
-SELECT 'DROPPING USER brt_user' AS 'INSTALLATION STARTED'
+SELECT 'DROPPING USER brt_user' AS 'INSTALLATION STARTED';
 
 DROP USER
 IF EXISTS 'brt_user'@'localhost';
@@ -41,13 +41,14 @@ PASSWORD EXPIRE INTERVAL 90 DAY
 PASSWORD HISTORY 5
 PASSWORD REUSE INTERVAL 365 DAY;
 
-REVOKE ALL, GRANT OPTION FROM 'brt_user'@'localhost'
+REVOKE ALL, GRANT OPTION FROM 'brt_user'@'localhost';
 
 GRANT ALL ON *.*
 TO 'brt_user'@'localhost';
 
 SELECT 'COMPLETED' AS 'INSTALLATION DONE';
-FLUSH PRIVILIGES;
+
+
 
 SELECT user, host, show_db_priv, account_locked
 FROM mysql.user;
@@ -55,7 +56,10 @@ FROM mysql.user;
 SELECT 'DROPPING USER admin_007' AS 'INSTALLATION STARTED';
 
 DROP USER
-IF EXISTS 'admin_007'@'%'
+IF EXISTS 'admin_007'@'%';
+
+CREATE USER
+IF NOT EXISTS 'admin_007'@'%'
 IDENTIFIED BY 'guttmanGrizzlies_2024'
 FAILED_LOGIN_ATTEMPTS 4
 PASSWORD_LOCK_TIME UNBOUNDED
@@ -72,3 +76,5 @@ GRANT SELECT ON classicmodels.*
 TO 'admin_007'@'%';
 
 SELECT 'ADDED USER admin_007' AS 'INSTALLATION COMPLETED';
+
+FLUSH PRIVILEGES;

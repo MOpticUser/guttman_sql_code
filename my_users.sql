@@ -25,7 +25,9 @@ REVOKE ALL, GRANT OPTION FROM 'admin_001'@'%';
 SELECT user, show_db_priv, account_locked
 FROM mysql.user;
 
-FLUSH PRIVILIGES;
+
 
 SELECT user, show_db_priv, account_locked
 FROM mysql.user;
+
+FLUSH PRIVILEGES;
